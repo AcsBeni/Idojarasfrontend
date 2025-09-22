@@ -26,6 +26,13 @@ async function render(view) {
     }
     
 } 
+function Loadtheme(){
+    theme="dark"
+    if(localStorage.getItem('SCtheme')){
+        theme = localStorage.getItem('SCtheme')
+    }
+    switchtheme(theme)
+}
 function savetheme(theme){
     localStorage.setItem('SCtheme', theme)
 }
@@ -46,13 +53,17 @@ function switchtheme(theme){
 };
 
 function Alert(type,title, msg){
-
+    alertpop.classList.remove("alert-danger","alert-warning","alert-success");
     alertpop.classList.remove("hide")
-    alertpop.classList.add(`Alert-${type}`)
+    alertpop.classList.add(`alert-${type}`)
     alertmsg.innerHTML = msg
     alerttitle.innerHTML = title
-    setTimeout(500,()=>{
-        alertpop.classList.add("hide")
-    })
-    alertpop.classList.remove(`Alert-${type}`)
+    setTimeout(() => {
+        alertpop.classList.add("fade-out");
+        setTimeout(() => {
+            alertpop.classList.add("hide");
+        }, 1000);
+    }, 3000);
 }
+
+Loadtheme();
