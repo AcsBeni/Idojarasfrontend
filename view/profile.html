@@ -1,2 +1,32 @@
 <h3>Profil</h3>
 <hr>
+<div class="container">
+    <div class="row">
+        <form class="col-lg-5 col-md-4">
+            <div class="mb-3">
+              <label for="Emailfield" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="Emailfield" >
+            </div>
+            <div class="mb-3">
+                <label for="NameField" class="form-label">Név</label>
+                <input type="text" class="form-control" id="Namefield">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="Changenameemail()">Bejelentkezés</button>
+        </form>
+        <form class="col-lg-5 col-md-4">
+            <div class="mb-3">
+                <label for="Passwordfield" class="form-label">Régi Jelszó</label>
+                <input type="password" class="form-control" id="oldPasswordfield">
+              </div>
+            <div class="mb-3">
+              <label for="Passwordfield" class="form-label">Jelszó</label>
+              <input type="password" class="form-control" id="Passwordfield">
+            </div>
+            <div class="mb-3">
+                <label for="ConfirmPasswordfield" class="form-label">Jelszó Megerősítés</label>
+                <input type="password" class="form-control" id="ConfirmPasswordfield">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="Changepassword()">Bejelentkezés</button>
+        </form>
+    </div>
+</div>

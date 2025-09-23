@@ -5,6 +5,15 @@ let darkicon = document.querySelector('#darkmode')
 let alertpop = document.querySelector("#alertpopup")
 let alerttitle = document.querySelector("#alerttitle")
 let alertmsg = document.querySelector("#alertmessage")
+let loggedinmenu = document.querySelector(".loggedinnav")
+let loggedoutmenu = document.querySelector(".loggedoutnav")
+
+const Appcím = "Időjárásmutató"
+const Server = "http://localhost:3000"
+const Készítő = "Ács Benjámin"
+
+let loggeduser =null;
+
 
 darkicon.addEventListener("click",()=>{
     savetheme("dark")
@@ -24,7 +33,6 @@ async function render(view) {
             initCalendar();
             break;
     }
-    
 } 
 function Loadtheme(){
     theme="dark"
@@ -51,7 +59,6 @@ function switchtheme(theme){
             break;
     }
 };
-
 function Alert(type,title, msg){
     alertpop.classList.remove("alert-danger","alert-warning","alert-success");
     alertpop.classList.remove("hide")
@@ -65,5 +72,19 @@ function Alert(type,title, msg){
         }, 1000);
     }, 3000);
 }
-
+async function getloggeduser() {
+    if(sessionStorage.getItem("loggeduser")){
+        loggeduser = JSON.parse(sessionStorage.getItem("loggeduser"))
+        loggedinmenu.classList.remove("hide")
+        loggedoutmenu.classList.add("hide")
+        await render("profile")
+    }
+    else{
+        loggeduser =null;
+        loggedinmenu.classList.add("hide")
+        loggedoutmenu.classList.remove("hide")
+        await render("login")
+    }
+}
 Loadtheme();
+getloggeduser();
