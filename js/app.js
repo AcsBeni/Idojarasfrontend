@@ -32,6 +32,9 @@ async function render(view) {
             await GetCalendardate();
             initCalendar();
             break;
+        case("profile"):
+            getProfile()
+            break;
     }
 } 
 function Loadtheme(){
@@ -44,7 +47,6 @@ function Loadtheme(){
 function savetheme(theme){
     localStorage.setItem('SCtheme', theme)
 }
-
 function switchtheme(theme){
     
     document.documentElement.setAttribute('data-bs-theme', theme);
@@ -77,7 +79,7 @@ async function getloggeduser() {
         loggeduser = JSON.parse(sessionStorage.getItem("loggeduser"))
         loggedinmenu.classList.remove("hide")
         loggedoutmenu.classList.add("hide")
-        await render("profile")
+        await render("weather")
     }
     else{
         loggeduser =null;
