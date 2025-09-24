@@ -1,7 +1,29 @@
 .hide{
     display: none;
 }
-
+footer p{
+    font-size: 50%;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+#Cim{
+    padding: 20px;
+    text-align: center;
+}
+footer{
+    position: absolute;
+    border-top: 1px solid var(--bs-secondary);
+    padding: 15px 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #1b0f15;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
 main{
     height: 400px;
     width: 1000px;
@@ -12,7 +34,6 @@ main{
     right: 10px;
     top: 15px;
     cursor: pointer;
-   
 }
 main{
     padding: 20px;

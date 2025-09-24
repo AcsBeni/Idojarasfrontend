@@ -7,10 +7,18 @@ let alerttitle = document.querySelector("#alerttitle")
 let alertmsg = document.querySelector("#alertmessage")
 let loggedinmenu = document.querySelector(".loggedinnav")
 let loggedoutmenu = document.querySelector(".loggedoutnav")
+let Author = document.querySelector("#Keszito")
+let Company = document.querySelector("#Ceg")
+let Title = document.querySelector("#Cim")
 
 const Appcím = "Időjárásmutató"
 const Server = "http://localhost:3000"
 const Készítő = "Ács Benjámin"
+const Cég = "Türr István 13A"
+
+Author.innerHTML = Készítő
+Company.innerHTML = Cég
+Title.innerHTML = Appcím
 
 let loggeduser =null;
 

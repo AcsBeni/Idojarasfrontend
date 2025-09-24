@@ -1,6 +1,7 @@
 let callevents = []
 
 async function GetCalendardate() {
+  callevents=[]
   try {
     const res = await fetch(`${Server}/weather/user/${loggeduser.id}`, {
       method: "GET",

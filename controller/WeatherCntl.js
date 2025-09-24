@@ -6,7 +6,7 @@ function setDate(){
     let today = new Date().toISOString().split('T')[0];
     let Datafield = document.querySelector('#Datefield')
 
-    Datafield.setAttribute("max", today)
+    Datafield.setAttribute("min", today)
     Datafield.value = today
 }
 //időjárás összes adat frissítése
