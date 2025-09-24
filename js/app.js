@@ -40,6 +40,10 @@ async function render(view) {
             await Sortbydates();
             Renderweather();
             break;
+        case("chart"):
+            await getchartdata()
+            initChart()
+            break;
     }
 } 
 function Loadtheme(){
