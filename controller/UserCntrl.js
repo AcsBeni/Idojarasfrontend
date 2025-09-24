@@ -167,7 +167,7 @@ async function Changepassword() {
        sessionStorage.setItem("loggeduser", JSON.stringify(loggeduser));
        Alert("success","Sikeres jelszómódosítás!","Sikeresen megváltoztattad a jelszavad" )
    } catch (error) {
-       console.log('Error:', error);
+        Alert( "danger","Hiba történt!",err );
    }
 
 

@@ -44,6 +44,7 @@ async function render(view) {
             await getchartdata()
             initChart()
             break;
+        
     }
 } 
 function Loadtheme(){
@@ -88,7 +89,7 @@ async function getloggeduser() {
         loggeduser = JSON.parse(sessionStorage.getItem("loggeduser"))
         loggedinmenu.classList.remove("hide")
         loggedoutmenu.classList.add("hide")
-        await render("chart")
+        await render("calendar")
     }
     else{
         loggeduser =null;
