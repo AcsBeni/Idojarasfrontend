@@ -7,26 +7,26 @@
     </div>
     <div class="col-lg-2 col-md-1">
         <label for="Tempsfield">Hőmérséklet</label>
-        <input type="number" min="0" class="form-control" id="Tempsfield" >
+        <input type="number" min="-50" max="50" class="form-control" id="Tempsfield" >
     </div>
     <div class="col-lg-3 col-md-2">
         <Label>Időjárás</Label>
         <select class="form-select" aria-label="Default select example" id="Weatherfield">
-            <option value="1">Derült</option>
-            <option value="2">Gyengén felhős</option>
-            <option value="3">Erősen felhős</option>
-            <option value="4">Borult</option>
-            <option value="5">Eső</option>
-            <option value="6">Zivatar</option>
-            <option value="7">Havazás</option>
-            <option value="8">Zivatar</option>
+            <option value="Derült">Derült</option>
+            <option value="Gyengén felhős">Gyengén felhős</option>
+            <option value="Erősen felhős">Erősen felhős</option>
+            <option value="Borult">Borult</option>
+            <option value="Eső">Eső</option>
+            <option value="Zivatar">Zivatar</option>
+            <option value="Havazás">Havazás</option>
+            <option value="Zivatar">Zivatar</option>
         </select>
     </div>
     
     <div class="col-lg-5 col-md-4">
-        <button class="btn btn-primary " id="Addbtn" onclick="add()" >Hozzáadás</button>
-        <button class="btn btn-warning hide" id="Updatebtn" onclick="update()" >Módosítás</button>
-        <button class="btn btn-danger hide" id="Delbtn" onclick="del()">Törlés</button>
+        <button class="btn btn-primary " id="Addbtn" onclick="Weatheradd()" >Hozzáadás</button>
+        <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()" >Módosítás</button>
+        <button class="btn btn-danger hide" id="Delbtn" onclick="Weatherdelete()">Törlés</button>
         <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()" >Mégse</button>
        
     </div>

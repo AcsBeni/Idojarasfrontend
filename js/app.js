@@ -35,6 +35,11 @@ async function render(view) {
         case("profile"):
             getProfile()
             break;
+        case("weather"):
+            setDate();
+            await Sortbydates();
+            Renderweather();
+            break;
     }
 } 
 function Loadtheme(){
@@ -79,7 +84,7 @@ async function getloggeduser() {
         loggeduser = JSON.parse(sessionStorage.getItem("loggeduser"))
         loggedinmenu.classList.remove("hide")
         loggedoutmenu.classList.add("hide")
-        await render("weather")
+        await render("chart")
     }
     else{
         loggeduser =null;
