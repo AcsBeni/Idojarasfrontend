@@ -49,6 +49,7 @@ async function render(view) {
             setDate();
             await Sortbydates();
             Renderweather();
+            updateTrack()
             break;
         case("chart"):
             await getchartdata()
@@ -107,7 +108,7 @@ async function getloggeduser() {
         loggeduser = JSON.parse(sessionStorage.getItem("loggeduser"))
         loggedinmenu.classList.remove("hide")
         loggedoutmenu.classList.add("hide")
-        await render("calendar")
+        await render("chart")
     }
     else{
         loggeduser =null;

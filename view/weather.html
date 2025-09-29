@@ -1,37 +1,29 @@
 <h3>Időjárás módosítás</h3>
 <hr>
 <div class="row">
-    <div class="col-lg-5 col-md-4">
+    <div class="col-lg-3 col-md-3">
         <label for="Date">Dátum</label>
         <input type="date" class="form-control" id="Datefield" placeholder="Dátum">
     </div>
-    <div class="col-lg-2 col-md-1">
+
+    <div class="col-lg-3 col-md-3">
         <label>Hőmérséklet</label>
-        <div class="range-wrap" id="rangeWrap">
-      
-       
-
-      
-        
-        <div class="track"></div>
-        <input type="range" id="range1" class="range" min="0" max="540" value="17">
-        <input type="range" id="range2" class="range" min="0" max="540" value="270">
-        <div class="slider-track"></div>
-       
-        </div>
-
-        <div class="value-badges mt-2">
-            <span class="badge bg-light text-dark">Min: <strong id="minVal">0</strong></span>
-            <span class="badge bg-light text-dark ms-auto">Max: <strong id="maxVal">20</strong></span>
+        <div class="dual-range">
+            <div class="range-wrap">
+                <div class="track"></div>
+                <div class="slider-track" id="sliderTrack"></div>
+                <input type="range" id="minRange" min="-50" max="50" value="0" oninput="updateTrack()">
+                <input type="range" id="maxRange" min="-50" max="50" value="30" oninput="updateTrack()">
+            </div>
+            <div class="value-badges mt-2">
+                <span class="badge">Min: <strong id="minVal">0</strong></span>
+                <span class="badge ms-auto">Max: <strong id="maxVal">0</strong></span>
+            </div>
         </div>
     </div>
- 
-    <div class="col-lg-2 col-md-1">
-        <label for="Tempsfield">Hőmérséklet</label>
-        <input type="number" min="-50" max="50" class="form-control" id="Tempsfield" >
-    </div>
-    <div class="col-lg-3 col-md-2">
-        <Label>Időjárás</Label>
+
+    <div class="col-lg-3 col-md-3">
+        <label>Időjárás</label>
         <select class="form-select" aria-label="Default select example" id="Weatherfield">
             <option value="Derült">Derült</option>
             <option value="Gyengén felhős">Gyengén felhős</option>
@@ -42,13 +34,12 @@
             <option value="Havazás">Havazás</option>
         </select>
     </div>
-    
-    <div class="col-lg-5 col-md-4">
-        <button class="btn" id="Addbtn" onclick="Weatheradd()" >Hozzáadás</button>
-        <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()" >Módosítás</button>
+
+    <div class="col-lg-5 col-md-3">
+        <button class="btn button" id="Addbtn" onclick="Weatheradd()">Hozzáadás</button>
+        <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()">Módosítás</button>
         <button class="btn btn-danger hide" id="Delbtn" onclick="Weatherdelete()">Törlés</button>
-        <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()" >Mégse</button>
-       
+        <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()">Mégse</button>
     </div>
 </div>
 <table class="table table-striped table-hover">

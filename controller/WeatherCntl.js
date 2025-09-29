@@ -13,9 +13,10 @@ function setDate(){
 async function Weatherupdate(){
     let Datefield = document.querySelector("#Datefield").value;
     let Weatherfield = document.querySelector("#Weatherfield").value;
-    let Tempfield = document.querySelector("#Tempsfield").value;
+    let Tempfield = document.querySelector('#maxRange')
+    let Mintemp = document.querySelector("#minRange")
 
-    if(Datefield =="" || Weatherfield=="" || Tempfield==""){
+    if(Datefield =="" || Weatherfield==""){
         Alert("warning","Kérem írja be az adatokat", "Minden adat kitöltése kötelező");
         return;
     }
@@ -26,7 +27,8 @@ async function Weatherupdate(){
             Alert("danger","Hiba", "Az adott napra már van lépés adat!");
             if(confirm("Szeretné módosítani a meglévő adatot?")){
                 document.querySelector("#Datefield").value = weathers[idx].date;
-                document.querySelector("#Tempsfield").value = weathers[idx].temp;
+                document.querySelector("#minVal"),value = weathers[idx].mintemp
+                document.querySelector("#maxVal").value = weathers[idx].temp;
                 document.querySelector("#Weatherfield").value = weathers[idx].weather;
                 selectedindex = weathers[idx].id;
                 selecteddate = weathers[idx].date;
@@ -43,7 +45,8 @@ async function Weatherupdate(){
                     body: JSON.stringify({
                         date: Datefield,
                         weather: Weatherfield,
-                        temp: Tempfield,
+                        mintemp: Mintemp.value,
+                        temp: Tempfield.value,
                         userid: loggeduser.id
                     })
                 });
@@ -67,7 +70,8 @@ async function Weatherupdate(){
                 body: JSON.stringify({
                     date: Datefield,
                     weather: Weatherfield,
-                    temp: Tempfield,
+                    mintemp: Mintemp.value,
+                    temp: Tempfield.value,
                     userid: loggeduser.id
                 })
             });
@@ -81,14 +85,17 @@ async function Weatherupdate(){
     }
 }
 async function Weatheradd() {
+    
     let Datefield = document.querySelector('#Datefield').value
-    let Tempfield = document.querySelector('#Tempsfield')
+    let Tempfield = document.querySelector('#maxRange')
+    let Mintemp = document.querySelector("#minRange")
     let Weatherfield = document.querySelector('#Weatherfield').value
 
-    if(Datefield ==""|| Tempfield.value==""|| Weatherfield==""){
+    if(Datefield ==""|| Weatherfield==""){
         Alert("warning", "Kérem töltse ki a mezőket", "Az összes mező kitöltése nélkül nem mehetünk tovább!")
         return;
     }
+    
     //Adat frissítése, ha ugyanaz a dátum
     let idx= weathers.findIndex(weather => weather.date === Datefield && weather.userid === loggeduser.id)
     console.log(idx)
@@ -101,6 +108,7 @@ async function Weatheradd() {
                 },
                 body: JSON.stringify({
                     date: Datefield,
+                    mintemp: Mintemp.value,
                     temp: Tempfield.value,
                     weather: Weatherfield,
                     userid: loggeduser.id
@@ -130,6 +138,7 @@ async function Weatheradd() {
                 },
                 body: JSON.stringify({
                     date: Datefield,
+                    mintemp:Mintemp.value,
                     temp: Tempfield.value,
                     weather: Weatherfield,
                     userid: loggeduser.id
@@ -169,10 +178,12 @@ async function Renderweather(){
                Deletebutton(weather.id); 
             }
         });
+    
         editBtn.addEventListener("click", () => {
             document.querySelector("#Datefield").value = weather.date;
             document.querySelector("#Weatherfield").value = weather.weather;
-            document.querySelector('#Tempsfield').value = Number(weather.temp)
+            document.querySelector('#maxRange').value = Number(weather.temp);
+            document.querySelector("#minRange").value = Number(weather.mintemp)
             selectedindex = weather.id;
             selecteddate = weather.date;
             updateevent();
@@ -180,7 +191,7 @@ async function Renderweather(){
                 
         td1.innerHTML = (index+1) + '.';
         td2.innerHTML = weather.date;
-        td3.innerHTML = "min";
+        td3.innerHTML = weather.mintemp;
         td4.innerHTML = weather.temp;
         td5.innerHTML = weather.weather;
         td6.appendChild(editBtn);
@@ -189,6 +200,7 @@ async function Renderweather(){
         td3.classList.add("text-end");
         td4.classList.add("text-end");
         td5.classList.add("text-end");
+        td6.classList.add("text-end");
 
         tr.appendChild(td1);
         tr.appendChild(td2);
@@ -214,24 +226,25 @@ async function Weatherdelete(){
    
     if(selectedindex != -1){
         if(confirm("Biztosan törli az adatot?")){
-            Deletebutton(selectedindex); 
+            await Deletebutton(selectedindex); 
             selectedindex = -1;
             document.querySelector("#Datefield").value = "";
-            document.querySelector("#Tempsfield").value = "";
+            document.querySelector('#maxRange').value = 20;
+            document.querySelector("#minRange").value = 0;
+            updateTrack()
             cancel();
         }
     }
     else{
         Alert("warning","Nincs kijelölve adat!", "Kérem jelöljön ki egy adatot a folytasáshoz");
     }
-    
-
 }
 function updateevent(){
     document.querySelector("#Addbtn").classList.add("hide");
     document.querySelector('#Updatebtn').classList.remove("hide");
     document.querySelector('#Delbtn').classList.remove("hide");
     document.querySelector('#Cancelbtn').classList.remove("hide");
+    updateTrack()
 }
 function cancel(){
     document.querySelector("#Addbtn").classList.remove("hide");
@@ -239,9 +252,11 @@ function cancel(){
     document.querySelector('#Delbtn').classList.add("hide");
     document.querySelector('#Cancelbtn').classList.add("hide");
     document.querySelector("#Datefield").value = "";
-    document.querySelector("#Tempsfield").value = 0;
+    document.querySelector('#maxRange').value = 20;
+    document.querySelector("#minRange").value = 0;
     selectedindex = -1;
     selecteddate = [];
+    updateTrack()
 }
 async function Deletebutton(id){
     fetch(`${Server}/weather/${id}`, {
@@ -254,4 +269,5 @@ async function Deletebutton(id){
             Alert("danger","Hiba", res.msg);
         }
     });
+    updateTrack()
 }

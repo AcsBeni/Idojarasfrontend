@@ -1,6 +1,7 @@
 let chart = null;
 let labels = [];
 let datas = [];
+let mindatas =[];
 
 async function getchartdata(){
    
@@ -17,6 +18,7 @@ async function getchartdata(){
         result.sort((a, b) => new Date(a.date) - new Date(b.date));
         labels = result.map(item => item.date);
         datas = result.map(item => item.temp);
+        mindatas = result.map(item => item.mintemp)
         console.log(datas)
         console.log(labels)
     } catch (error) {
