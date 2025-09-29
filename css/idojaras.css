@@ -1,5 +1,133 @@
+/*Témák*/
+.lightmodegradient{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(206, 168, 221));
+}
+.darkmodegradient{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(47, 19, 49));
+}
+.darkmodegradientleft{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(47, 19, 49),rgb(47, 19, 49));
+}
+.lightmodegradientleft{
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(206, 168, 221),rgb(206, 168, 221));
+}
+
+/*Calendar*/
+#calendar a {
+    color: #aa65ca !important;
+}
+.fc .fc-today-button{
+    background-color: #d267d9 !important;
+    border-color: #831bd1 !important;
+}
+.fc .fc-button-primary {
+    background-color: #d267d9;
+    border-color: #831bd1;
+}
+.fc .fc-button-primary:not(:disabled) .fc-button-active{
+    border-color:#d267d9 !important;
+    background-color: #831bd1 !important;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active{
+    background-color: #831bd1;
+    border-color: #d267d9;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active:hover{
+    transition: ease-in-out 0.1s;
+    scale: 110%;
+}
+.fc .fc-button:hover {
+    transition: ease-in-out 0.1s;
+    scale: 110%;
+    background-color: rgb(226, 107, 190);
+    border-color: #a71bd1;
+  }
+
+/*gomb*/
+.button{
+    transition: ease-in-out 0.2s;
+    background-color: #983ac4;
+}
+.button:hover{
+    scale: 110%;
+    background-color: #a839c4;
+}
+
+/*range slider*/
+.dual-range {
+    padding: 1rem;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+.range-wrap {
+    position: relative;
+    height: 48px;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto;
+    position: absolute;
+    left: 0;
+    top: 12px;             
+    width: 100%;
+    margin: 0;
+    height: 24px;
+    background: transparent; 
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ffebf9;
+    background: #912da5; 
+    box-shadow: 0 0 0 4px rgba(13,110,253,0.12);
+    cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 0;
+    background: #912da5;
+    cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(13,110,253,0.12);
+}
+input[type=range]::-moz-range-track {
+    height: 6px;
+    background: transparent;
+}
+.slider-track {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 22px;   
+    height: 6px;
+    border-radius: 6px;
+    background-color: #ca5ece;
+    z-index: 0;
+} 
+input[type=range] { z-index: 2; }
+input.upper { z-index: 3; }
+.value-badges {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+.value-badges .badge {
+    min-width: 5rem;
+    text-align: center;
+}
+
+/*tartalom rejtése*/
 .hide{
     display: none;
+}
+body{
+    transition: ease-in-out 0.5s;
 }
 footer p{
     font-size: 50%;

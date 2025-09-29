@@ -39,8 +39,10 @@ function initCalendar() {
       right: 'timeGridDay,timeGridWeek,dayGridMonth,multiMonthYear'
     },
     locale: 'hu',
-    events: callevents,
+    eventTextColor: 'purple',
 
+    events: callevents,
+   
     eventContent: function (arg) {
       let weather = arg.event.extendedProps.weather || "";
       let icon = arg.event.extendedProps.icon;

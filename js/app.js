@@ -10,6 +10,8 @@ let loggedoutmenu = document.querySelector(".loggedoutnav")
 let Author = document.querySelector("#Keszito")
 let Company = document.querySelector("#Ceg")
 let Title = document.querySelector("#Cim")
+let Body = document.querySelector("body")
+let Navbar = document.querySelector(".navbar")
 
 const Appcím = "Időjárásmutató"
 const Server = "http://localhost:3000"
@@ -72,10 +74,18 @@ function switchtheme(theme){
         case "light":
             lighticon.classList.add("hide");
             darkicon.classList.remove("hide");
+            body.classList.add("lightmodegradient")
+            body.classList.remove("darkmodegradient")
+            Navbar.classList.add("lightmodegradientleft")
+            Navbar.classList.remove("darkmodegradientleft")
             break;
         case "dark":
             lighticon.classList.remove("hide");
             darkicon.classList.add("hide");
+            body.classList.remove("lightmodegradient")
+            body.classList.add("darkmodegradient")
+            Navbar.classList.remove("lightmodegradientleft")
+            Navbar.classList.add("darkmodegradientleft")
             break;
     }
 };

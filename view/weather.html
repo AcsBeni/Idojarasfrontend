@@ -6,6 +6,23 @@
         <input type="date" class="form-control" id="Datefield" placeholder="Dátum">
     </div>
     <div class="col-lg-2 col-md-1">
+        <label class="form-label">Hőmérséklet</label>
+        <div class="range-wrap" id="rangeWrap">
+      
+        <div class="slider-track" id="sliderTrack"></div>
+
+      
+        <input id="rangeMin" type="range" min="-50" max="50" step="1" value="0" aria-label="Minimum value">
+        <input id="rangeMax" class="upper" type="range" min="-50" max="50" step="1" value="20" aria-label="Maximum value">
+        </div>
+
+        <div class="value-badges mt-2">
+            <span class="badge bg-light text-dark">Min: <strong id="minVal">0</strong></span>
+            <span class="badge bg-light text-dark ms-auto">Max: <strong id="maxVal">20</strong></span>
+        </div>
+    </div>
+ 
+    <div class="col-lg-2 col-md-1">
         <label for="Tempsfield">Hőmérséklet</label>
         <input type="number" min="-50" max="50" class="form-control" id="Tempsfield" >
     </div>
@@ -19,12 +36,11 @@
             <option value="Eső">Eső</option>
             <option value="Zivatar">Zivatar</option>
             <option value="Havazás">Havazás</option>
-            
         </select>
     </div>
     
     <div class="col-lg-5 col-md-4">
-        <button class="btn btn-primary " id="Addbtn" onclick="Weatheradd()" >Hozzáadás</button>
+        <button class="btn" id="Addbtn" onclick="Weatheradd()" >Hozzáadás</button>
         <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()" >Módosítás</button>
         <button class="btn btn-danger hide" id="Delbtn" onclick="Weatherdelete()">Törlés</button>
         <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()" >Mégse</button>
@@ -36,7 +52,8 @@
         <tr>
             <th class="text-center">#</th>
             <th class="text-start" >Dátum</th>
-            <th class="text-end">hőmérséklet</th>
+            <th class="text-end">hőmérséklet(MIN)</th>
+            <th class="text-end">hőmérséklet(MAX)</th>
             <th class="text-end">Időjárás</th>
             <th class="text-end">Műveletek</th>
         </tr>

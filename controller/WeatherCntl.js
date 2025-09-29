@@ -156,6 +156,7 @@ async function Renderweather(){
         let td3 = document.createElement("td");
         let td4 = document.createElement("td");
         let td5 = document.createElement("td");
+        let td6 = document.createElement("td")
         let editBtn = document.createElement("button");
         let delBtn = document.createElement("button");
 
@@ -179,10 +180,11 @@ async function Renderweather(){
                 
         td1.innerHTML = (index+1) + '.';
         td2.innerHTML = weather.date;
-        td3.innerHTML = weather.temp;
-        td4.innerHTML = weather.weather;
-        td5.appendChild(editBtn);
-        td5.appendChild(delBtn);
+        td3.innerHTML = "min";
+        td4.innerHTML = weather.temp;
+        td5.innerHTML = weather.weather;
+        td6.appendChild(editBtn);
+        td6.appendChild(delBtn);
 
         td3.classList.add("text-end");
         td4.classList.add("text-end");
@@ -193,6 +195,7 @@ async function Renderweather(){
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6)
         tbody.appendChild(tr);
     });
 }
