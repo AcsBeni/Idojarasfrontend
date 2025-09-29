@@ -41,7 +41,12 @@
     scale: 110%;
     background-color: rgb(226, 107, 190);
     border-color: #a71bd1;
-  }
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    background-color: rgb(226, 107, 190);
+    border-color: #a71bd1;
+    
+}
 
 /*gomb*/
 .button{
@@ -83,7 +88,7 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 50%;
     border: 2px solid #ffebf9;
     background: #912da5; 
-    box-shadow: 0 0 0 4px rgba(13,110,253,0.12);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.12);
     cursor: pointer;
 }
 input[type=range]::-moz-range-thumb {
@@ -93,7 +98,7 @@ input[type=range]::-moz-range-thumb {
     border: 0;
     background: #912da5;
     cursor: pointer;
-    box-shadow: 0 0 0 3px rgba(13,110,253,0.12);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
 }
 input[type=range]::-moz-range-track {
     height: 6px;
@@ -109,8 +114,11 @@ input[type=range]::-moz-range-track {
     background-color: #ca5ece;
     z-index: 0;
 } 
+.track{
+    background-color: #fff;
+}
 input[type=range] { z-index: 2; }
-input.upper { z-index: 3; }
+
 .value-badges {
     display: flex;
     justify-content: space-between;

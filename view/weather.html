@@ -6,14 +6,18 @@
         <input type="date" class="form-control" id="Datefield" placeholder="Dátum">
     </div>
     <div class="col-lg-2 col-md-1">
-        <label class="form-label">Hőmérséklet</label>
+        <label>Hőmérséklet</label>
         <div class="range-wrap" id="rangeWrap">
       
-        <div class="slider-track" id="sliderTrack"></div>
+       
 
       
-        <input id="rangeMin" type="range" min="-50" max="50" step="1" value="0" aria-label="Minimum value">
-        <input id="rangeMax" class="upper" type="range" min="-50" max="50" step="1" value="20" aria-label="Maximum value">
+        
+        <div class="track"></div>
+        <input type="range" id="range1" class="range" min="0" max="540" value="17">
+        <input type="range" id="range2" class="range" min="0" max="540" value="270">
+        <div class="slider-track"></div>
+       
         </div>
 
         <div class="value-badges mt-2">
