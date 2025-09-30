@@ -189,10 +189,12 @@ async function Changepassword() {
        Passwordfield.value =""
        Oldpassfield.value =""
        Confpassfield.value =""
+      
+       
    } catch (error) {
-        Alert( "danger","Hiba történt!",err );
+        Alert( "danger","Hiba történt!","Nem jó jelszót írt be" );
    }
-
+   
 
 }
 function getProfile(){
