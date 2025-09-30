@@ -26,12 +26,27 @@ async function Weatherupdate(){
         if(idx != -1){
             Alert("Warning","Próbálja meg", "Az adott napra már van adat!");
             if(confirm("Szeretné módosítani a meglévő adatot?")){
-                document.querySelector("#Datefield").value = weathers[idx].date;
-                document.querySelector("#minVal"),value = weathers[idx].mintemp
-                document.querySelector("#maxVal").value = weathers[idx].temp;
-                document.querySelector("#Weatherfield").value = weathers[idx].weather;
-                selectedindex = weathers[idx].id;
-                selecteddate = weathers[idx].date;
+                try {
+                    let res = await fetch(`${Server}/weather/${weathers[idx].id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            date: Datefield,
+                            weather: Weatherfield,
+                            mintemp: Mintemp.value,
+                            temp: Tempfield.value,
+                            userid: loggeduser.id
+                        })
+                    });
+                    Alert("success","Sikeres adatmentés", "Sikeresen megváltozott az adott napra az időjárás");
+                    await Sortbydates();
+                    Renderweather();
+                }
+                catch (error) {
+                    Alert("danger","Hiba",error);
+                }
                 updateevent();
             }
         }
@@ -171,9 +186,9 @@ async function Renderweather(){
         let editBtn = document.createElement("button");
         let delBtn = document.createElement("button");
 
-        editBtn.classList.add("btn", "btn-sm", "btn-warning", "me-2");
+        editBtn.classList.add("btn", "btn-sm", "btn-warning", "me-2", "buttonscale");
         editBtn.innerHTML = '<i class="bi bi-pencil"></i>';
-        delBtn.classList.add("btn", "btn-sm", "btn-danger");
+        delBtn.classList.add("btn", "btn-sm", "btn-danger","buttonscale");
         delBtn.innerHTML = '<i class="bi bi-trash"></i>';   
         delBtn.addEventListener("click", async () => {
             if(confirm("Biztosan törli az adatot?")){

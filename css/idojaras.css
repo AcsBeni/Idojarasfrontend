@@ -242,11 +242,15 @@ main{
     margin-bottom: 15px;
 }
 #chart{
-    width: 100%;       /* chart fills the parent width */
-    max-width: 1200px; /* optional limit for large screens */
-    height: 400px;     /* fixed height */
+    width: 100%;       
+    max-width: 1200px;
+    height: 400px;    
     max-height: 400px;
     
+}
+.buttonscale:hover{
+    transition: ease-in-out 0.2s;
+    scale:  110%;
 }
 
 #calendar {
