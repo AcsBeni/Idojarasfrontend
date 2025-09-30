@@ -34,21 +34,20 @@
             <option value="Havazás">Havazás</option>
         </select>
     </div>
-
-    <div class="col-lg-5 col-md-3">
-        <button class="btn button" id="Addbtn" onclick="Weatheradd()">Hozzáadás</button>
-        <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()">Módosítás</button>
-        <button class="btn btn-danger hide" id="Delbtn" onclick="Weatherdelete()">Törlés</button>
-        <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()">Mégse</button>
-    </div>
 </div>
-<table class="table table-striped table-hover">
+<div class="col-lg-5 col-md-3 gombrow">
+    <button class="btn button" id="Addbtn" onclick="Weatheradd()">Hozzáadás</button>
+    <button class="btn btn-warning hide" id="Updatebtn" onclick="Weatherupdate()">Módosítás</button>
+    <button class="btn btn-danger hide" id="Delbtn" onclick="Weatherdelete()">Törlés</button>
+    <button class="btn btn-secondary hide" id="Cancelbtn" onclick="cancel()">Mégse</button>
+</div>
+<table class="table table-striped table-hover weathertabla">
     <thead>
         <tr>
             <th class="text-center">#</th>
             <th class="text-start" >Dátum</th>
-            <th class="text-end">hőmérséklet(MIN)</th>
-            <th class="text-end">hőmérséklet(MAX)</th>
+            <th class="text-end">C°(MIN)</th>
+            <th class="text-end">C°(MAX)</th>
             <th class="text-end">Időjárás</th>
             <th class="text-end">Műveletek</th>
         </tr>

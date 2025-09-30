@@ -1,12 +1,24 @@
+const passwdRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 async function Registeruser(){
     let Emailfield = document.querySelector('#Emailfield');
     let Namefield = document.querySelector('#Namefield');
     let Passwordfield = document.querySelector('#Passwordfield');
     let Confpassfield = document.querySelector('#ConfirmPasswordfield');
-
+    
+    
     if(Emailfield.value ==""|| Namefield.value==""|| Passwordfield.value== ""||Confpassfield.value==""){
         Alert("warning", "Üres mezők", "Kérem töltsön ki minden üres mezőt")
        return;
+    }
+    if (!emailRegExp.test(Emailfield.value)){
+        Alert('warning', 'Hiba', 'Nem megfelelő e-mail cím!'); 
+        return;
+    }
+    if (!passwdRegExp.test(Passwordfield.value)) {
+        Alert('warning', 'Hiba', 'A megadott jelszó nem elég biztonságos!');
+        return;
     }
     if(Passwordfield.value!=Confpassfield.value)
     {
@@ -93,6 +105,10 @@ async function Changenameemail(){
         Alert("warning", "Kérem töltse ki a mezőket", "Az összes mező kitöltése nélkül nem mehetünk tovább!")
         return;
     }
+    if (!emailRegExp.test(Emailfield.value)){
+        Alert('warning', 'Hiba', 'Nem megfelelő e-mail cím!'); 
+        return;
+    }
     let user={}
     try{
         const res = await fetch(`${Server}/users/profile/${loggeduser.id}`,{
@@ -142,6 +158,10 @@ async function Changepassword() {
     }
     if(Passwordfield.value != Confpassfield.value){
         Alert("warning", "Új jelszó és megerősítő jelszó hiba","Az új jelszó és a megerősítő jelszó nem ugyanaz!")
+        return;
+    }
+    if (!passwdRegExp.test(Passwordfield.value)) {
+        Alert('warning', 'Hiba', 'A megadott jelszó nem elég biztonságos!');
         return;
     }
     let user = {};

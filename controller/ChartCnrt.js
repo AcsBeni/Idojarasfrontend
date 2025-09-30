@@ -53,7 +53,7 @@ function initChart() {
       {
         label: 'Max hőmérséklet',
         data: datas,
-        fill: '+1', // Fill to the next dataset (mindatas)
+        fill: '+1', 
         backgroundColor: 'rgba(218, 66, 248, 0.3)',
         borderColor: 'rgb(218, 66, 248)',
         borderWidth: 2,
@@ -66,12 +66,13 @@ function initChart() {
       {
         label: 'Min hőmérséklet',
         data: mindatas,
-        fill: false, // Don't fill below min line
-        borderColor: 'rgb(66, 133, 244)',
+        fill: false, 
+        borderColor: 'rgb(155, 60, 243)',
+        backgroundColor: 'rgba(218, 66, 248, 0.3)',
         borderWidth: 2,
         tension: 0.4,
         pointBackgroundColor: 'white',
-        pointBorderColor: 'rgb(66, 133, 244)',
+        pointBorderColor: 'rgb(111, 26, 145)',
         pointHoverRadius: 6,
         pointRadius: 4
       }

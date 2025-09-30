@@ -1,7 +1,7 @@
 let callevents = []
 
 async function GetCalendardate() {
-  callevents=[]
+  callevents = []
   try {
     const res = await fetch(`${Server}/weather/user/${loggeduser.id}`, {
       method: "GET",
@@ -11,14 +11,17 @@ async function GetCalendardate() {
     })
     const result = await res.json();
     result.forEach(x => {
+      
+      let icon = weatherIcons[x.weather] || x.weather;
+
       let event = {
-        title: `${x.weather}\n
-                ${x.temp} C°`, 
-        start: x.date,                  
-        allDay: false,
+        title: `${icon} ${x.mintemp}-${x.temp}°C`, 
+        start: x.date,
+        allDay: true,
         extendedProps: {
-          weather: x.weather,           
-          icon: x.iconUrl              
+          weather: x.weather,
+          temp: x.temp,
+          mintemp: x.mintemp
         }
       }
       callevents.push(event)
@@ -40,36 +43,18 @@ function initCalendar() {
     },
     locale: 'hu',
     eventTextColor: 'purple',
-
     events: callevents,
-   
-    eventContent: function (arg) {
-      let weather = arg.event.extendedProps.weather || "";
-      let icon = arg.event.extendedProps.icon;
-
-      
-      let emojiMap = {
-        "Derült": "☀️",
-        "Eső": "🌧️",
-        "Borult": "☁️",
-        "Havazás": "❄️",
-        "Zivatar": "⛈️"
-      };
-
-      
-      let innerHtml = "";
-      if (icon) {
-        innerHtml = `<img src="${icon}" alt="${weather}" style="width:20px;height:20px;margin-right:4px;">`;
-      } else if (emojiMap[weather.toLowerCase()]) {
-        innerHtml = `<span style="font-size:18px;margin-right:4px;">${emojiMap[weather.toLowerCase()]}</span>`;
-      }
-
-     
-      innerHtml += `<span>${arg.event.title}</span>`;
-
-      return { html: innerHtml };
-    }
   });
 
   calendar.render();
 }
+
+weatherIcons = {
+  "Derült": "☀️",
+  "Gyengén felhős": "🌤️",
+  "Erősen felhős": "⛅",
+  "Borult": "☁️",
+  "Eső": "🌧️",
+  "Zivatar": "⛈️",
+  "Havazás": "❄️"
+};

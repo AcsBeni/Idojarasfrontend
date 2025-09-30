@@ -122,6 +122,8 @@ async function Weatheradd() {
             }
             else{
                 Alert("danger", "Hiba", "Az időjárást nem sikerült jegyzetelni")
+                console.log(res.status)
+                console.log(loggeduser.id)
             }
         }
         catch(err){
