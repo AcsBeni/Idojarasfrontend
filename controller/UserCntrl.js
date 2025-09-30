@@ -186,6 +186,9 @@ async function Changepassword() {
        }
        sessionStorage.setItem("loggeduser", JSON.stringify(loggeduser));
        Alert("success","Sikeres jelszómódosítás!","Sikeresen megváltoztattad a jelszavad" )
+       Passwordfield.value =""
+       Oldpassfield.value =""
+       Confpassfield.value =""
    } catch (error) {
         Alert( "danger","Hiba történt!",err );
    }
