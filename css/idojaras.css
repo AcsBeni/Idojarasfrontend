@@ -254,9 +254,29 @@ main{
     margin: 40px auto;
     height: 600px;
   }
+  
+@media screen and (max-width:820px) {
+  
+    .fc-event-title {
+        font-size: 1.0em;   
+       
+    }
+}
 @media screen and (max-width:620px) {
   
     .gombrow{
         text-align: center;
+    }
+    .fc-event-title {
+        font-size: 0.8em;   
+       
+    }
+}
+@media screen and (max-width:520px) {
+  
+  
+    .fc-event-title {
+        font-size: 0.6em;   
+       
     }
 }
