@@ -24,7 +24,7 @@ async function Weatherupdate(){
     if(selecteddate != Datefield){
         let idx = weathers.findIndex(weather => weather.date === Datefield && weather.userid === loggeduser.id);
         if(idx != -1){
-            Alert("danger","Hiba", "Az adott napra már van lépés adat!");
+            Alert("Warning","Próbálja meg", "Az adott napra már van adat!");
             if(confirm("Szeretné módosítani a meglévő adatot?")){
                 document.querySelector("#Datefield").value = weathers[idx].date;
                 document.querySelector("#minVal"),value = weathers[idx].mintemp
