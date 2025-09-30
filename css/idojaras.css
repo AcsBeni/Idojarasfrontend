@@ -232,6 +232,10 @@ main{
     right: 10px;
     top: 15px;
     cursor: pointer;
+    transition: cubic-bezier(0.38, -3.21, 0.64, 4.72) 0.5s; 
+}
+#themeswitch:hover{
+    scale: 120%;
 }
 .weathertabla{
    box-shadow: 1px 1px 20px #7c1e93;
