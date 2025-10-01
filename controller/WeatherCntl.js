@@ -23,16 +23,16 @@ async function Weatherupdate(){
         Alert("warning","Kérem írja be az adatokat", "Minden adat kitöltése kötelező");
         return;
     }
-    if(((date.getMonth() <=9 &&date.getMonth() <=11) && ((Mintemp.value<0 || Tempfield.value<0)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=8 &&date.getMonth() <=10) && ((Mintemp.value<0 || Tempfield.value<0)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás őszhöz képest")
     }
-    if((date.getMonth() <=12 &&date.getMonth() <=2) && (Mintemp.value>15 || Tempfield.value>15)){
+    if((date.getMonth() ==11 ||date.getMonth() <=1) && (Mintemp.value>=15 || Tempfield.value>=15)){
         alert("Kicsit fura ez az időjárás télhez képest")
     }
-    if(((date.getMonth() <=3 &&date.getMonth() <=5) && ((Mintemp.value<10 || Tempfield.value<10)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=2 &&date.getMonth() <=4) && ((Mintemp.value<10 || Tempfield.value<10)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás tavaszhoz képest")
     }
-    if(((date.getMonth() <=6 &&date.getMonth() <=8) && ((Mintemp.value<20 || Tempfield.value<20)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=5 &&date.getMonth() <=7) && ((Mintemp.value<20 || Tempfield.value<20)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás nyárhoz képest")
     }
     console.log(selecteddate)
@@ -126,16 +126,16 @@ async function Weatheradd() {
         Alert("warning", "Kérem töltse ki a mezőket", "Az összes mező kitöltése nélkül nem mehetünk tovább!")
         return;
     }
-    if(((date.getMonth() <=9 &&date.getMonth() <=11) && ((Mintemp.value<0 || Tempfield.value<0)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=8 &&date.getMonth() <=10) && ((Mintemp.value<0 || Tempfield.value<0)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás őszhöz képest")
     }
-    if((date.getMonth() <=12 &&date.getMonth() <=2) && (Mintemp.value>15 || Tempfield.value>15)){
+    if((date.getMonth() ==11 ||date.getMonth() <=1) && (Mintemp.value>=15 || Tempfield.value>=15)){
         alert("Kicsit fura ez az időjárás télhez képest")
     }
-    if(((date.getMonth() <=3 &&date.getMonth() <=5) && ((Mintemp.value<10 || Tempfield.value<10)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=2 &&date.getMonth() <=4) && ((Mintemp.value<10 || Tempfield.value<10)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás tavaszhoz képest")
     }
-    if(((date.getMonth() <=6 &&date.getMonth() <=8) && ((Mintemp.value<20 || Tempfield.value<20)|| Weatherfield =="Havazás"))){
+    if(((date.getMonth() >=5 &&date.getMonth() <=7) && ((Mintemp.value<20 || Tempfield.value<20)|| Weatherfield =="Havazás"))){
         alert("Kicsit fura ez az időjárás nyárhoz képest")
     }
     //Adat frissítése, ha ugyanaz a dátum
